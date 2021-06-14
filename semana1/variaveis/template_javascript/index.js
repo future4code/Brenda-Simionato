@@ -54,13 +54,24 @@ console.log("Hoje é segunda-feira?", resposta3)*/
 /*Exercício 3.
 Resposta:*/
 
-let a = 10
+/*let a = 10
 let b = 25
 let c = a+b
 
 console.log("O novo valor de a é", b) 
 console.log("O novo valor de b é", a) 
-console.log("O valor de c é", c)
+console.log("O valor de c é", c)*/
+
+
+let numero1
+let numero2
+
+numero1 = prompt("Escolha o primeiro número")
+numero2 = prompt("Escolha o segundo número")
+
+console.log("A soma dos dois números:", Number(numero1)+Number(numero2))
+console.log("A multiplicação dos dois números:", Number(numero1)*Number(numero2))
+
 
 
 
