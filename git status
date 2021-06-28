@@ -1,0 +1,275 @@
+[33mcommit 416ac0eeb98d2326cdba03172a070997a8be9a87[m[33m ([m[1;36mHEAD -> [m[1;32msemana3-revisao-js[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 3bf9d67 ed6e7e4
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Fri Jun 25 10:04:53 2021 -0300
+
+    Merge pull request #16 from future4code/semana2-aula10
+    
+    Exercícios Aula 10 - Callback e Funções de Array
+
+[33mcommit ed6e7e4670b070aa4ee85d9b2c1399648d704ffb[m[33m ([m[1;31morigin/semana2-aula10[m[33m, [m[1;32msemana2-aula10[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 24 14:25:58 2021 -0300
+
+    Exercícios Aula 10 - Callback e Funções de Array
+
+[33mcommit 8d54a0e2ba442a4547da99c8884bdcf0355ea15d[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 24 14:22:57 2021 -0300
+
+    Exercícios Aula 10 - Callback e Funções de Array
+
+[33mcommit 3bf9d67349a49b88eae46173ddd73b245b75e3ad[m
+Merge: d714f0a 20fca57
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Thu Jun 24 12:24:37 2021 -0300
+
+    Merge pull request #15 from future4code/semana2-aula09
+    
+    Exercícios Aula 09 - Laços
+
+[33mcommit 20fca57c70fc7d190752c890346d697e529a2691[m[33m ([m[1;31morigin/semana2-aula09[m[33m, [m[1;32msemana2-aula09[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Wed Jun 23 14:38:52 2021 -0300
+
+    Exercícios Aula 09 - Laços
+
+[33mcommit d714f0a73b55e093029334d9236f1d91376a1556[m
+Merge: e151bbb 4b7653d
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Wed Jun 23 09:24:35 2021 -0300
+
+    Merge pull request #14 from future4code/semana2-aula08
+    
+    Exercícios Aula 08 - Condicionais
+
+[33mcommit 4b7653dd447c7e4cfb5293c4dc31680073af68b7[m[33m ([m[1;31morigin/semana2-aula08[m[33m, [m[1;32msemana2-aula08[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Tue Jun 22 13:11:37 2021 -0300
+
+    Exercícios Aula 08 - Condicionais
+
+[33mcommit e151bbb398ef4c2213ebd882e409817db3832249[m
+Merge: 146db7b e3dc267
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Tue Jun 22 10:36:27 2021 -0300
+
+    Merge pull request #13 from future4code/semana1-aula07
+    
+    Exercícios Aula 07 - Objetos
+
+[33mcommit 146db7b56085f5901a7a3b173bb08f1a1c99b715[m
+Merge: 96ecd91 ae88be4
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Mon Jun 21 16:32:35 2021 -0300
+
+    Merge pull request #12 from future4code/semana1-projeto
+    
+    Lista de Exercícios - Introdução a Javascript
+
+[33mcommit e3dc267412c437821dbde034dfc78a527ee9a246[m[33m ([m[1;31morigin/semana1-aula07[m[33m, [m[1;32msemana1-aula07[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Mon Jun 21 16:31:12 2021 -0300
+
+    Exercícios Aula 07 - Objetos
+
+[33mcommit ae88be414073c299ef29e2f40be54c4c3de5cb32[m[33m ([m[1;31morigin/semana1-projeto[m[33m, [m[1;32msemana1-projeto[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Fri Jun 18 17:00:10 2021 -0300
+
+    Lista de Exercícios - Introdução a Javascript
+
+[33mcommit 96ecd91199be7d84e840443cc57c3d98c88c212a[m
+Merge: c14fe85 aa1caed
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Fri Jun 18 10:56:44 2021 -0300
+
+    Merge pull request #11 from future4code/semana1-aula06
+    
+    Exercícios - Aula 06
+
+[33mcommit aa1caed61b4134cdc4db21d090479f9db8572612[m[33m ([m[1;31morigin/semana1-aula06[m[33m, [m[1;32msemana1-aula06[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 17 13:04:22 2021 -0300
+
+    Exercícios - Aula 06
+
+[33mcommit c14fe852d6994b506cb5d2bd3b6f113cd4cc3040[m
+Merge: 9fcc235 3cc6f91
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Thu Jun 17 08:57:41 2021 -0300
+
+    Merge pull request #10 from future4code/semana1-aula05
+    
+    Exercícios - Aula 05
+
+[33mcommit 3cc6f91ecccd73701aa4571e89272bb0bd975132[m[33m ([m[1;31morigin/semana1-aula05[m[33m, [m[1;32msemana1-aula05[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Wed Jun 16 13:25:18 2021 -0300
+
+    Exercícios - Aula 05
+
+[33mcommit 9fcc235ecbf0605691a3fe539e89d22a7e6cba36[m
+Merge: a4f5293 e62a467
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Wed Jun 16 08:42:33 2021 -0300
+
+    Merge pull request #9 from future4code/semana1-aula04
+    
+    Exercícios - Aula 04
+
+[33mcommit a4f5293a66cc265e9a2b9b91efe77802cd31c2fa[m
+Merge: 7e1fa7a 030cd57
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Tue Jun 15 12:40:34 2021 -0300
+
+    Merge pull request #8 from future4code/semana1-aula03
+    
+    Exercicios Aula 03
+
+[33mcommit e62a467fc65604459049ddb73e73f7186134fed5[m[33m ([m[1;31morigin/semana1-aula04[m[33m, [m[1;32msemana1-aula04[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Tue Jun 15 12:37:56 2021 -0300
+
+    Exercícios - Aula 04
+
+[33mcommit 030cd57c07aa2a5eea9d79c673c32ee857789798[m[33m ([m[1;31morigin/semana1-aula03[m[33m, [m[1;32msemana1-aula03[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Mon Jun 14 15:21:30 2021 -0300
+
+    Adicionado desafio
+
+[33mcommit bf3f6247a99cfee339dbac16fe13183636b90f47[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Mon Jun 14 13:21:34 2021 -0300
+
+    Exercicios Aula 03
+
+[33mcommit 7e1fa7af6ace40814fa09de48a65d81d4054bf0a[m
+Merge: e70faa5 c1079d1
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Mon Jun 14 11:56:02 2021 -0300
+
+    Merge pull request #7 from future4code/corrige-nome-diretorio
+    
+    Corrige nome diretorio
+
+[33mcommit c1079d106292a4fc53580e8be11545034291182a[m[33m ([m[1;31morigin/corrige-nome-diretorio[m[33m, [m[1;32mcorrige-nome-diretorio[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Mon Jun 14 11:50:07 2021 -0300
+
+    Correção diretório
+
+[33mcommit e2c5c3f25a3524b55acb9e37fb21b42b757f723f[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Mon Jun 14 11:49:20 2021 -0300
+
+    Correção do diretório
+
+[33mcommit e70faa5432d2e5e0a2023f9fce057ff29a220d18[m
+Merge: 5c0ba45 690c893
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Mon Jun 14 11:39:15 2021 -0300
+
+    Merge pull request #6 from future4code/projeto-onboarding
+    
+    Resumo da primeira semana na Labenu
+
+[33mcommit 690c893f1791c471de067fa4f8005cf3f3864b6d[m[33m ([m[1;31morigin/projeto-onboarding[m[33m, [m[1;32mprojeto-onboarding[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Fri Jun 11 15:12:23 2021 -0300
+
+    Resumo da primeira semana na Labenu
+
+[33mcommit 5c0ba45fc0761ea543c0fc8aaa315e04754b890c[m
+Merge: 304ac4b 03d4e10
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Fri Jun 11 14:46:38 2021 -0300
+
+    Merge pull request #3 from future4code/semana0-aula2-3
+    
+    Filmes
+
+[33mcommit 304ac4b450fbfe8ed33cf27cbf99e2dc86161b6e[m
+Merge: e183d66 fe97900
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Fri Jun 11 14:46:26 2021 -0300
+
+    Merge pull request #4 from future4code/semana0-aula2-4
+    
+    Comidas
+
+[33mcommit e183d668a3a90ed30fa8cc7ae107e8404e70047f[m
+Merge: acfee16 4fe6a87
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Fri Jun 11 14:46:11 2021 -0300
+
+    Merge pull request #5 from future4code/semana0-aula2-5
+    
+    Redes Sociais
+
+[33mcommit acfee166b7be638a472abbd0bac80694d862a36e[m
+Merge: fe30a54 a5bbea0
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Fri Jun 11 14:44:32 2021 -0300
+
+    Merge pull request #2 from future4code/semana0-aula2-2
+    
+    Semana0 aula2 2
+
+[33mcommit fe30a54ec2e8be88587f59a7a394e0487284a36e[m
+Merge: 9b83cd1 ba39d9f
+Author: Brenda Evellyn Tiba Simionato <85185584+brendasimionato@users.noreply.github.com>
+Date:   Fri Jun 11 14:41:31 2021 -0300
+
+    Merge pull request #1 from future4code/semana0-aula2-1
+    
+    Semana0 aula2 1
+
+[33mcommit 4fe6a875143d9566242f5104e3a65193fc0cc6e9[m[33m ([m[1;31morigin/semana0-aula2-5[m[33m, [m[1;32msemana0-aula2-5[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 10 16:26:15 2021 -0300
+
+    Redes Sociais
+
+[33mcommit fe97900321d3c94817cc891220267aa219826b60[m[33m ([m[1;31morigin/semana0-aula2-4[m[33m, [m[1;32msemana0-aula2-4[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 10 16:23:12 2021 -0300
+
+    Comidas
+
+[33mcommit 03d4e10c8822fa728bec542fc29acbacb6627485[m[33m ([m[1;31morigin/semana0-aula2-3[m[33m, [m[1;32msemana0-aula2-3[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 10 16:09:06 2021 -0300
+
+    Filmes
+
+[33mcommit a5bbea085cc803484b7ce7e40562898349b11ea1[m[33m ([m[1;31morigin/semana0-aula2-2[m[33m, [m[1;32msemana0-aula2-2[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 10 16:03:55 2021 -0300
+
+    Musicas
+
+[33mcommit 8a70c7039196a138411cf1aa90860234838ce997[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 10 15:54:59 2021 -0300
+
+    Musicas
+
+[33mcommit ba39d9fb6b63106ef599d7c07405d5584c29f712[m[33m ([m[1;31morigin/semana0-aula2-1[m[33m, [m[1;32msemana0-aula2-1[m[33m)[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 10 14:57:14 2021 -0300
+
+    Adicionado sobrenome
+
+[33mcommit 2cddf853210a349c1ebc3027036344b1c75a4f4b[m
+Author: Brenda Simionato <brendaevellyn97@gmail.com>
+Date:   Thu Jun 10 13:44:43 2021 -0300
+
+    Adicionada minha Bio
+
+[33mcommit 9b83cd14055d9d97b61b0a0b4a7632de72efa6df[m
+Author: João Vinicius Alves <jvp.alves@hotmail.com>
+Date:   Sun Jun 6 20:32:42 2021 -0300
+
+    Initial commit
