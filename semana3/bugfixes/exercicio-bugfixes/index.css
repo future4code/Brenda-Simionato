@@ -25,9 +25,6 @@ button:focus {
     color: white;
 }
 
-img {
-    width: 100px;
-}
 
 div>p:first-child {
     display: inline;
@@ -127,4 +124,13 @@ td button {
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+
+img {
+    width: 50px;
+}
+
+td {
+    text-align: center;
 }
