@@ -17,31 +17,6 @@ h1 {
      
 }
 
-h2 {
-    color: black;
-    margin: 10px 10px 10px;
-    display: block;
-    text-align: center;
-    font-family: system-ui;
-    
-}
-
-h3 {
-    text-align: center;
-    margin: 20px;
-    padding: 10px;
-    font-family: system-ui;
-}
-
-h4 {
-    font-family: system-ui;
-    text-align:right;
-}
-
-p {
-    margin: 30px;
-}
-
 a {
     margin: 10px 10px 10px;
     display: block;
@@ -53,22 +28,41 @@ a:hover {
     color:rgb(245, 17, 112) 
 }
 
-img {
-    width: 6%;
-    position: relative;
-    left: 80%;
+
+h2 {
+    color: black;
+    margin: 10px 10px 10px;
+    display: block;
+    text-align: center;
+    font-family: system-ui;
     
 }
 
-
-
-
-label, input {
+h3 {
+    text-align: center;
+    display: inline-block;
     margin: 20px;
+    padding: 10px;
+    font-family: system-ui;
+}
+
+img {
+    width: 40%;
+    padding: 10px;
+    position: relative;
+    left: 20px;
+    border: rgb(245, 17, 112) solid
+}
+
+tr {
+    font-family: system-ui;
+    text-align:left
+}
+td {
+    text-align:start;
+    font-family: system-ui;
+}
+
+.center {
     text-align: center;
 }
-
-li, h2 {
-    margin: 15px;
-}
-
