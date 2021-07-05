@@ -1,0 +1,74 @@
+body {
+    background-color: white;
+}
+
+div {
+    color: black
+}
+
+h1 {
+    color: black;
+    padding: 60px ;
+    background-color:rgb(245, 17, 112) ;
+    display: flex;
+    justify-content: center;
+    font-family: system-ui;
+    font-size: 45px;
+     
+}
+
+h2 {
+    color: black;
+    margin: 10px 10px 10px;
+    display: block;
+    text-align: center;
+    font-family: system-ui;
+    
+}
+
+h3 {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    font-family: system-ui;
+}
+
+h4 {
+    font-family: system-ui;
+    text-align:right;
+}
+
+p {
+    margin: 30px;
+}
+
+a {
+    margin: 10px 10px 10px;
+    display: block;
+    text-align: center;
+    
+}
+
+a:hover {
+    color:rgb(245, 17, 112) 
+}
+
+img {
+    width: 6%;
+    position: relative;
+    left: 80%;
+    
+}
+
+
+
+
+label, input {
+    margin: 20px;
+    text-align: center;
+}
+
+li, h2 {
+    margin: 15px;
+}
+

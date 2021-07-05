@@ -1,0 +1,65 @@
+body {
+    background-color: white;
+}
+
+div {
+    color: black
+}
+
+h1 {
+    color: black;
+    padding: 60px ;
+    background-color:rgb(245, 17, 112) ;
+    display: flex;
+    justify-content: center;
+    font-family: system-ui;
+    font-size: 45px;
+     
+}
+
+a {
+    margin: 10px 10px 10px;
+    display: block;
+    text-align: center;
+    
+}
+
+a:hover {
+    color:rgb(245, 17, 112) 
+}
+
+h2 {
+    color: black;
+    margin: 10px 10px 10px;
+    display: block;
+    text-align: center;
+    font-family: system-ui;
+    
+}
+
+div {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    font-family: system-ui;
+}
+
+button {
+    background-color:rgb(245, 17, 112);
+    margin: 20px;
+    padding: 20px;
+    font-size: 20px;
+    font-family: system-ui;
+}
+
+button:hover {
+    background-color:darksalmon;
+    color: black;
+    cursor: pointer;
+}
+
+label, input {
+    font-family: system-ui;
+    font-size: 18px;
+}
+
