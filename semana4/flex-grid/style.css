@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     background-color:mediumvioletred ;
     display: flex;
@@ -7,19 +12,20 @@ header {
     height: 50px;
 }
 
-.logo {
+.logo img {
     width: 30px;
-    padding: 10px;
+    display: inline;
 }
 
-h1 {
+.logo h1 {
     align-self: center;
+    display: inline;
 }
 
 .botao-login {
     display: flex;
     flex-direction: row-reverse;
-    height: 20px;
+    height: 30px;
     
 }
 
@@ -40,13 +46,18 @@ h1 {
 
 .menu a {
     text-decoration: none;
-    display: inline-flex;
     color: black;
     padding: 10px;
+    justify-content: space-between;
+    display: flex;
+    margin: -4px;
+    
 }
 
 .menu ol {
-    list-style-type: none;
+    list-style: none;
+    margin: revert;
+    padding: inherit;
 }
 
 .menu img {
