@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    background-color: rgb(172, 102, 238);
+    color: white;
+    font-family: system-ui;
+}
+
+.botao-buscar {
+    margin: 0px;
+    padding: 5px;
+}
+
+footer {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    background-color: rgb(172, 102, 238);
+    color: white;
+    font-family: system-ui;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+.box-video {
+    padding: 0;
+    margin: 10px;
+    box-shadow: 5px 5px 5px 5px darkgray;
+    display: flex;
+}
+
+.box-video embed {
+    height: 400px;
+    width: 400px;
+}
+
+p {
+    font-family: system-ui;
+    text-align: center;
+}
+
+img {
+    display: inline;
+    width: 350px;
+    place-items: flex-end;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+body {
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 4fr;
+}
+
+b {
+    text-align: center;
+    font-family: system-ui;
+    color: rgb(172, 102, 238);
+}
+
+h3 {
+    text-align: center;
+    font-family: system-ui;
+    color: rgb(172, 102, 238);
+}
+
+.box-video a :hover {
+    color: rgb(238, 222, 1);
+}
+
+
+input {
+    height: 30px;
+}

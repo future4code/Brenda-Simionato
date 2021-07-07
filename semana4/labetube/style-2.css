@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    background-color: rgb(172, 102, 238);
+    color: white;
+}
+
+footer {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    background-color: rgb(172, 102, 238);
+    color: white;
+}
+
+P {
+    text-align: center;
+    font-family: system-ui;
+    color: rgb(172, 102, 238);
+    margin: auto;
+}
+
+
+div {
+    display: flex;
+    justify-content: center;
+}
