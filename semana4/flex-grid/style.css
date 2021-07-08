@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color:mediumvioletred ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+}
+
+.logo img {
+    width: 30px;
+    display: inline;
+}
+
+.logo h1 {
+    align-self: center;
+    display: inline;
+}
+
+.botao-login {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 30px;
+    
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.5fr 3fr;
+   
+}
+
+.menu {
+    background-color: #f2d0e0;
+}
+
+.menu .icone {
+    padding-right: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    justify-content: space-between;
+    display: flex;
+    margin: -4px;
+    
+}
+
+.menu ol {
+    list-style: none;
+    margin: revert;
+    padding: inherit;
+}
+
+.menu img {
+    display: inline;
+    width: 20px;
+    place-items: flex-end;
+    align-items: center;
+}
+
+.cardapio img {
+    width: 250px;
+}
+
+.cardapio {
+    display: flex;
+    text-align: center;
+    margin: 1px;
+    flex-wrap: wrap;
+}
+
+.descricao {
+    width: 250px;
+}
+
+.box-cardapio {
+    box-shadow: 5px 5px 10px darkgrey;
+    margin: 10px;
+}
+
+.box-cardapio h5 {
+    padding: 5px;
+}
+
+footer {
+    background-color: mediumvioletred;
+    width: auto;
+    height: 60px;
+    padding: 0%;
+    text-align: center;
+    display: flow-root;
+}
