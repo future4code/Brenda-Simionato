@@ -3,6 +3,16 @@ import React from "react"
 import axios from "axios"
 
 const Container = styled.div`
+display: flex;
+margin: 15px;
+padding: 15px;
+align-items: center;
+button {
+    text-align: center;
+    height: 20px;
+    width: 70px;
+    cursor: pointer;
+}
 `
 
 
@@ -18,9 +28,10 @@ export default class TelaListaDeUsuarios extends React.Component {
         this.pegarUsuarios()
     }
 
-    componentDidUpdate = () => {
-        this.pegarUsuarios()
-    }
+    // componentDidUpdate = () => {
+    //     this.pegarUsuarios()
+    // }
+
 
     pegarUsuarios = () => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
@@ -38,6 +49,8 @@ export default class TelaListaDeUsuarios extends React.Component {
         })
     }
 
+    
+
     removeUsuario = (id) => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/" + id
 
@@ -51,6 +64,16 @@ export default class TelaListaDeUsuarios extends React.Component {
             alert("Erro ao remover usuário!")
         })
     }
+
+
+
+    confirmaRemocaoUsuario = (id) => {
+        if(window.confirm("Deseja realmente remover?")) {
+            this.removeUsuario(id)
+        }
+    }
+
+
 
     render() {
         return (
@@ -71,7 +94,7 @@ export default class TelaListaDeUsuarios extends React.Component {
                                         {usuario.name}
                                     </td>
                                     <td>
-                                        <button onClick={() => this.removeUsuario(usuario.id)}>Remover</button>
+                                        <button onClick={() => this.confirmaRemocaoUsuario(usuario.id)}>Remover</button>
                                     </td>
                                 </tr>
 
