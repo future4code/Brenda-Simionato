@@ -24,7 +24,9 @@ export default class Adicionar extends React.Component {
             }
         }).then((resp) => {
             this.setState({ name: "" })
+            this.props.listaPlaylists()
 
+        
         }).catch((error) => {
             alert("Erro ao adicionar playlist!")
 

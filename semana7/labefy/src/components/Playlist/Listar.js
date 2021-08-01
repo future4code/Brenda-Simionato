@@ -1,39 +1,19 @@
 import axios from 'axios';
 import styled from 'styled-components';
 import React from 'react';
+import App from '../../App';
 
 const Container = styled.div`
 `
 
 export default class Listar extends React.Component {
 
-    state = {
-
-        playlists: []
-    }
 
 
     componentDidMount = () => {
-        this.listaPlaylists()
+        this.props.listaPlaylists()
     }
 
-
-    listaPlaylists = () => {
-
-        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
-        const authorization = "brenda-simionato-lovelace"
-
-        axios.get(url, {
-            headers: {
-                authorization
-            }
-        }).then((resp) => {
-            this.setState({ playlists: resp.data.result.list })
-
-        }).catch((error) => {
-            alert("Erro ao exibir playlists!")
-        })
-    }
 
 
     removePlaylist = (id) => {
@@ -46,6 +26,7 @@ export default class Listar extends React.Component {
             }
         }).then((resp) => {
             alert("Playlist removida com sucesso")
+            this.props.listaPlaylists()
 
         }).catch((error) => {
             alert("Erro ao remover playlist")
@@ -71,13 +52,14 @@ export default class Listar extends React.Component {
                     </thead>
                     <tbody>
 
-                        {this.state.playlists.map(playlist => {
+                        {this.props.playlists.map(playlist => {
                             return (
                                 <tr>
                                     <td >
                                         {playlist.name}
                                     </td>
                                     <td>
+                                        <button onClick={() => this.props.detalhes(playlist.id)}>Exibir detalhes</button>
                                         <button onClick={() => this.confirmaRemocaoPlaylist(playlist.id)}>Remover</button>
                                     </td>
                                 </tr>
