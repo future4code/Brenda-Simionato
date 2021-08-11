@@ -1,46 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import Footer from "./components/Footer";
+import Perfil from "./components/Perfil";
+import Funcionalidades from "./components/Funcionalidades";
+import Listagem from "./components/Listagem";
 
-const MainContainer = styled.div`
-
-`
-
-
-export default class App extends React.Component {
-  state = {
-    perfis: []
-  }
+const MainContainer = styled.div``
 
 
-  listaPerfis = (id) => {
-    const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person" + id
-    const authorization = "brenda-simionato-lovelace"
+export default function App() {
+  const [perfil, setPerfil] = useState({});
+  const [componente, setComponente] = useState("")
+
+
+  const pegaPerfil = () => {
+
+    const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/brenda/person"
 
     axios.get(url, {
-      headers: {
-        authorization
-      }
     }).then((resp) => {
-      this.setState({ perfis: resp.data.result })
+      setPerfil(resp.data.profile)
     }).catch((error) => {
       alert("Erro ao atualizar perfil")
     })
+
   }
 
-  render() {
+  const escolheComponente = () => {
+    if (componente == "listar") {
 
+      return (
+        <MainContainer>
+          <Listagem></Listagem>
+        </MainContainer>
+      )
 
-    return (
-      <MainContainer
-        listaPerfis = {this.listaPerfis}
-        perfis={this.state.perfis}>
+    } else {
 
-        <Footer></Footer>
+      return (
+        <MainContainer>
+          <button onClick={() => alteraComponente("listar")}>Listar Matches</button>
+          <Perfil
+            perfil={perfil}
+          ></Perfil>
+          <Funcionalidades
+            perfil={perfil}
+            pegaPerfil={pegaPerfil}
+          ></Funcionalidades>
+        </MainContainer>
+      )
 
-      </MainContainer>
-
-    )
+    }
   }
+
+  const alteraComponente = (componente) => {
+    setComponente(componente)
+  }
+
+  useEffect(() => {
+    pegaPerfil()
+  }, [])
+
+
+  return (
+
+    escolheComponente()
+
+  )
+
 }
