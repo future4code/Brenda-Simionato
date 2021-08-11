@@ -3,10 +3,24 @@ import styled from "styled-components";
 import axios from "axios";
 
 
-const Container = styled.div``
+const Container = styled.div`
+display: block;
+text-align: center;
+margin: 10px;
+padding: 10px;
+font-size: 20px;
+img {
+    height: 50px;
+    width: 50px;
+}
+button {
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+}`
 
 
-export default function Listagem() {
+export default function Listagem(props) {
     const [matches, setMatches] = useState([])
 
 
@@ -17,8 +31,6 @@ export default function Listagem() {
         axios.get(url, {
         }).then((resp) => {
             setMatches(resp.data.matches)
-            console.log(resp.data.matches)
-            console.log(matches)
         }).catch((error) => {
             alert("Erro ao atualizar perfil")
         })
@@ -31,17 +43,21 @@ export default function Listagem() {
 
 
     return (
-        
+
         <Container>
             {
                 matches.map(match => {
-                    <div>
-                        <img src={match.photo}></img>
-                        <span>{match.name}</span>
-                    </div>
+                    return (
+                        <div>
+                            <ul>
+                                <img src={match.photo}></img>
+                                <span>{match.name}</span>
+                            </ul> </div>)
+
                 })
 
             }
+            <button onClick={() => props.limpaInformacoes()}>Limpa Informações</button>
         </Container>
 
     )

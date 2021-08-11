@@ -5,7 +5,21 @@ import Perfil from "./components/Perfil";
 import Funcionalidades from "./components/Funcionalidades";
 import Listagem from "./components/Listagem";
 
-const MainContainer = styled.div``
+const MainContainer = styled.div`
+margin: 0px;
+padding: 0px;
+align-items: center;
+text-align: center;
+button {
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+  cursor: pointer;
+
+}
+
+
+`
 
 
 export default function App() {
@@ -31,7 +45,10 @@ export default function App() {
 
       return (
         <MainContainer>
-          <Listagem></Listagem>
+          <Listagem
+            limpaInformacoes={limpaInformacoes}>
+
+          </Listagem>
         </MainContainer>
       )
 
@@ -39,14 +56,15 @@ export default function App() {
 
       return (
         <MainContainer>
-          <button onClick={() => alteraComponente("listar")}>Listar Matches</button>
+          <button onClick={() => alteraComponente("listar")}>Lista Matches</button>
+
           <Perfil
             perfil={perfil}
           ></Perfil>
           <Funcionalidades
             perfil={perfil}
-            pegaPerfil={pegaPerfil}
-          ></Funcionalidades>
+            pegaPerfil={pegaPerfil}>
+          </Funcionalidades>
         </MainContainer>
       )
 
@@ -62,10 +80,23 @@ export default function App() {
   }, [])
 
 
+  const limpaInformacoes = () => {
+
+    const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/brenda/clear"
+
+    axios.put(url, {
+    }).then((resp) => {
+      alteraComponente("")
+    }).catch((error) => {
+      alert("Erro ao limpar informações")
+    })
+
+
+  }
+
   return (
 
     escolheComponente()
 
   )
-
 }
