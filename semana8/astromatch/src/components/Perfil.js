@@ -6,11 +6,19 @@ display: flex;
 align-items: center;
 text-align: center;
 justify-content: center;
+
 img {
     height: 450px;
     width: 500px;
+    
 }
 
+b {
+    font-size: 22px;
+}
+span {
+    font-size: 16px;
+}
 `
 
 export default function Perfil(props) {
@@ -23,7 +31,7 @@ export default function Perfil(props) {
                 <hr></hr>
                 <span className="nomePerfil"><b>{props.perfil.name}</b></span>, <span className="idadePerfil">{props.perfil.age}</span>
                 <p></p>
-                <span>{props.perfil.bio}</span>
+                <span><i>{props.perfil.bio}</i></span>
                 <hr></hr>
             </div>
         </Container>

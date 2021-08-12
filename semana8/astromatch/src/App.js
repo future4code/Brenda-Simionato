@@ -5,6 +5,7 @@ import Perfil from "./components/Perfil";
 import Funcionalidades from "./components/Funcionalidades";
 import Listagem from "./components/Listagem";
 
+
 const MainContainer = styled.div`
 margin: 0px;
 padding: 0px;
@@ -15,10 +16,8 @@ button {
   justify-content: center;
   background-color: white;
   cursor: pointer;
-
+  padding: 8px;
 }
-
-
 `
 
 
@@ -56,15 +55,21 @@ export default function App() {
 
       return (
         <MainContainer>
-          <button onClick={() => alteraComponente("listar")}>Lista Matches</button>
+           <img src="images/astromatch.png" />
 
           <Perfil
-            perfil={perfil}
-          ></Perfil>
+            perfil={perfil}>
+          </Perfil>
+
           <Funcionalidades
             perfil={perfil}
             pegaPerfil={pegaPerfil}>
           </Funcionalidades>
+
+          <p></p>
+
+          <button onClick={() => alteraComponente("listar")}>Lista Matches</button>
+          
         </MainContainer>
       )
 
