@@ -11,6 +11,7 @@ export default function LoginPage() {
         <Container>,
 
             <div>Login</div>
+
             <input type="text" placeholder="E-mail"></input>
             <input type="passoword" placeholder="Senha"></input>
 

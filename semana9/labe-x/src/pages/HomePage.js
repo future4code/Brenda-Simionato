@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import ListTripsPage from "./ListTripsPage"
 import LoginPage from "./LoginPage"
@@ -23,6 +23,7 @@ export default function HomePage() {
 
 
     const renderComponent = () => {
+
         if (component == "public") {
             <ListTripsPage />
         } else if (component == "private") {
@@ -30,15 +31,22 @@ export default function HomePage() {
         }
     }
 
-    const onChangeComponent = (component) => {
+    const onSetComponent = (component) => {
         setComponent(component)
+        console.log(component)
     }
+
+
+    // useEffect(() => {
+        
+    // })
+
 
     return (
         <Container>
-            
-            <button onClick={() => onChangeComponent("public")} type="text">Ver Viagens</button>
-            <button onClick={() => onChangeComponent("private")} type="text">Área de Admin</button>
+
+            <button onClick={() => onSetComponent("public")} type="text">Ver Viagens</button>
+            <button onClick={() => onSetComponent("private")} type="text">Área de Admin</button>
 
             {renderComponent()}
 
