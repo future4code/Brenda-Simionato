@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import axios from "axios";
 import { useHistory } from "react-router"
@@ -42,7 +42,6 @@ p {
 `
 
 
-
 export default function AdminHomePage() {
 
 
@@ -62,6 +61,31 @@ export default function AdminHomePage() {
     }, [])
 
 
+
+    const removeTrip = (id) => {
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/brenda/trips/" + id
+
+
+        axios.delete(url, {
+        }).then((resp) => {
+            console.log(resp)
+            alert("Viagem removida com sucesso!")
+
+
+        }).catch((error) => {
+            console.log(error)
+            alert("Erro ao remover viagem!")
+        })
+    }
+
+
+    const confirmRemoveTrip = (id) => {
+        if (window.confirm("Deseja realmente remover a viagem?")) {
+            removeTrip(id)
+        }
+    }
+
+
     const history = useHistory()
 
     const goBack = () => {
@@ -71,6 +95,7 @@ export default function AdminHomePage() {
     const createTripPage = () => {
         history.push("/createTrip")
     }
+
 
     return (
 
@@ -86,7 +111,7 @@ export default function AdminHomePage() {
                     return (
                         <div>
                             <hr></hr>
-                            <p><b>Nome:</b> {trip.name}</p>
+                            <p><b>Nome:</b> {trip.name}<button onClick={confirmRemoveTrip}>Remover</button></p>
                             <hr></hr>
 
                         </div>)
