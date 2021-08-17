@@ -1,10 +1,23 @@
-// import React from "react"
-// import styled from "styled-components"
+import React from "react"
+import styled from "styled-components"
+import { useHistory } from "react-router"
 
 
-// export default function TripDetailsPage(){
+const Container = styled.div``
 
-//     return (
-        
-//     )
-// }
+
+export default function TripDetailsPage(){
+
+    const history = useHistory()
+
+    const goBack = () => {
+        history.goBack()
+    }
+
+    return (
+        <Container>
+             <button onClick={goBack}>Voltar</button>
+            
+        </Container>
+    )
+}

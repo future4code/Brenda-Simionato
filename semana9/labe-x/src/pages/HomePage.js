@@ -1,55 +1,50 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import ListTripsPage from "./ListTripsPage"
-import LoginPage from "./LoginPage"
+import { useHistory } from "react-router"
 
 
 const Container = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+
 button {
-  border-radius: 10px;
-  height: 50px;
-  width: 90px;
+  border-radius: 20px;
+  text-align: center;   
+  font-size: 15px; 
+  height: 38px;
+  width: 130px;
   display: inline;
   padding: 10px;
   margin: 5px;
   cursor: pointer;
+  color: white;
+  background-color: slategray;
+  border: white solid
 }
 `
 
 export default function HomePage() {
 
-    const [component, setComponent] = useState("");
 
 
+    const history = useHistory()
 
-    const renderComponent = () => {
 
-        if (component == "public") {
-            <ListTripsPage />
-        } else if (component == "private") {
-            <LoginPage />
-        }
-    }
-
-    const onSetComponent = (component) => {
-        setComponent(component)
-        console.log(component)
+    const listTripsPage = () => {
+        history.push("/public")
     }
 
 
-    // useEffect(() => {
-        
-    // })
-
+    const loginPage = () => {
+        history.push("/login")
+    }
 
     return (
         <Container>
 
-            <button onClick={() => onSetComponent("public")} type="text">Ver Viagens</button>
-            <button onClick={() => onSetComponent("private")} type="text">Área de Admin</button>
-
-            {renderComponent()}
-
+            <button onClick={listTripsPage}>Ver Viagens</button>
+            <button onClick={loginPage}>Área de Admin</button>
         </Container>
     )
 }
