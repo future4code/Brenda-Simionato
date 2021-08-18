@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import axios from "axios";
 import { useHistory } from "react-router"
+import TripDetailsPage from "./TripDetailsPage";
 
 
 
@@ -64,13 +65,17 @@ export default function AdminHomePage() {
 
     const removeTrip = (id) => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/brenda/trips/" + id
-
+        
+        const token = localStorage.getItem("token")
 
         axios.delete(url, {
+            headers: {
+                auth: token
+            }
         }).then((resp) => {
             console.log(resp)
             alert("Viagem removida com sucesso!")
-
+            history.push("/private")
 
         }).catch((error) => {
             console.log(error)
@@ -96,6 +101,9 @@ export default function AdminHomePage() {
         history.push("/createTrip")
     }
 
+    const TripDetails = () => {
+        history.push("/details")
+    }
 
     return (
 
@@ -111,7 +119,9 @@ export default function AdminHomePage() {
                     return (
                         <div>
                             <hr></hr>
-                            <p><b>Nome:</b> {trip.name}<button onClick={confirmRemoveTrip}>Remover</button></p>
+                            <p><b>Nome:</b> {trip.name}</p>
+                            <button onClick={() => confirmRemoveTrip(trip.id)}>Remover</button>
+                            <button onClick={TripDetails}>Ver detalhes</button>
                             <hr></hr>
 
                         </div>)

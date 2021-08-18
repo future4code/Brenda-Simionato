@@ -1,6 +1,7 @@
-import React from "react"
-import styled from "styled-components"
+import React, { useState } from "react"
+import styled, { ThemeConsumer } from "styled-components"
 import { useHistory } from "react-router"
+import axios from "axios"
 
 
 
@@ -36,14 +37,45 @@ button {
 
 export default function LoginPage() {
 
-    const history = useHistory()
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-    const goBack = () => {
-        history.goBack()
+
+    const onChangeEmail = (event) => {
+        setEmail(event.target.value)
     }
+
+
+    const onChangePassword = (event) => {
+        setPassword(event.target.value)
+    }
+
+    const onSubmitLogin = () => {
+        console.log(email, password)
+        const body = {
+            email: email,
+            password: password
+        }
+        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login", body)
+            .then((resp) => {
+                console.log("Deu certo: ", resp.data.token);
+                localStorage.setItem("token", resp.data.token);
+                adminHomePage()
+            })
+            .catch((error) => {
+                alert('Usuário não encontrado')
+                console.log("Deu errado: ", error.resp);
+            });
+    };
+
+    const history = useHistory()
 
     const adminHomePage = () => {
         history.push("/private")
+    }
+
+    const goBack = () => {
+        history.goBack()
     }
 
 
@@ -52,13 +84,13 @@ export default function LoginPage() {
 
             <div><h2>Login</h2></div>
 
-            <input type="text" placeholder="E-mail"></input>
+            <input onChange={onChangeEmail} type="text" placeholder="E-mail"></input>
             <p></p>
-            <input type="password" placeholder="Senha"></input>
+            <input onChange={onChangePassword} type="password" placeholder="Senha"></input>
             <p></p>
             <button onClick={goBack}>Voltar</button>
             <p></p>
-            <button onClick={adminHomePage}>Entrar</button>
+            <button onClick={onSubmitLogin}>Enviar</button>
 
         </Container>
 

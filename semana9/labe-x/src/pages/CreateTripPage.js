@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { useHistory } from "react-router"
+import axios from "axios"
 
 
 const Container = styled.div`
@@ -40,6 +41,33 @@ select {
 
 export default function CreateTripPage() {
 
+    const [name, setName] = useState("")
+    const [planet, setPlanet] = useState("")
+    const [date, setDate] = useState("")
+    const [description, setDescription] = useState("")
+    const [duration, setDuration] = useState("")
+
+
+    const onChangeName = (event) => {
+        setName(event.target.value)
+    }
+    
+    const onChangePlanet = (event) => {
+        setPlanet(event.target.value)
+    }
+
+    const onChangeDate = (event) => {
+        setDate(event.target.value)
+    }
+
+    const onChangeDescription = (event) => {
+        setDescription(event.target.value)
+    }
+
+    const onChangeDuration = (event) => {
+        setDuration(event.target.value)
+    }
+
     const history = useHistory()
 
     const goBack = () => {
@@ -47,32 +75,48 @@ export default function CreateTripPage() {
     }
 
 
+    const onCreateTrip = () => {
+        const token = localStorage.getItem("token")
+        const body = {
+            name: name,
+            planet: planet,
+            date: date, 
+            description: description, 
+            durationInDays: duration
+        }
+        axios.post ("https://us-central1-labenu-apis.cloudfunctions.net/labeX/brenda/trips", body, {
+            headers: {
+                auth: token
+            }
+        }).then((resp) => {
+            alert("Viagem criada com sucesso");
+            
+            
+        }).catch((error) => {
+            alert('Não foi possível criar uma nova viagem.');
+        });
+};
+
+
     return (
         <Container>
             <div><h2>Criar Viagem</h2></div>
             <p></p>
-            <input type="text" placeholder="Nome"></input>
+            <input onChange={onChangeName} type="text" placeholder="Nome"></input>
             <p></p>
-            <select typeof="text">
-                <option value disabled selected>Escolha um Planeta</option>
-                <option value="Jupiter">Jupiter</option>
-                <option value="Plutão">Plutão</option>
-                <option value="Mercúrio">Mercúrio</option>
-                <option value="Netuno">Netuno</option>
-                <option value="Marte">Marte</option>
-            </select>
+            <input onChange={onChangePlanet} type="text" placeholder="Planeta"></input>
             <p></p>
-            <input placeholder="Data"></input>
+            <input onChange={onChangeDate} type="date" placeholder="Data"></input>
             <p></p>
-            <input type="text" placeholder="Descrição"></input>
+            <input onChange={onChangeDescription} type="text" placeholder="Descrição"></input>
             <p></p>
-            <input type="text" placeholder="Duração em dias"></input>
+            <input onChange={onChangeDuration} type="text" placeholder="Duração em dias"></input>
             <p></p>
 
             <button onClick={goBack}>Voltar</button>
-            <button>Criar</button>
+            <button onClick={onCreateTrip}>Criar</button>
 
         </Container>
 
     )
-}
+    }

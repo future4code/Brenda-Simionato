@@ -7,6 +7,7 @@ import AdminHomePage from "./pages/AdminHomePage"
 import ApplicationFormPage from "./pages/ApplicationFormPage"
 import CreateTripPage from "./pages/CreateTripPage"
 import LoginPage from "./pages/LoginPage"
+import TripDetailsPage from "./pages/TripDetailsPage"
 
 
 
@@ -52,6 +53,11 @@ export default function App() {
         <Route exact path={"/createTrip"}>
           <CreateTripPage></CreateTripPage>
         </Route>
+
+        <Route exact path={"/details/"}>
+          <TripDetailsPage></TripDetailsPage>
+        </Route>
+        
 
       </Switch>
     </BrowserRouter>
