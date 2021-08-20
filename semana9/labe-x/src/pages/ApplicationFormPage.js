@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { useHistory } from "react-router"
+import axios from "axios"
 
 
 const Container = styled.div`
@@ -42,10 +43,63 @@ select {
 
 export default function ApplicationFormPage() {
 
+    const [name, setName] = useState("")
+    const [age, setAge] = useState("")
+    const [applicationText, setApplicationText] = useState("")
+    const [profession, setProfession] = useState("")
+    const [country, setCountry] = useState("")
+
+
+    const onChangeName = (event) => {
+        setName(event.target.value)
+    }
+
+    const onChangeAge = (event) => {
+        setAge(event.target.value)
+    }
+
+    const onChangeApplicationText = (event) => {
+        setApplicationText(event.target.value)
+    }
+
+    const onChangeProfession = (event) => {
+        setProfession(event.target.value)
+    }
+
+    const onChangeCountry = (event) => {
+        setCountry(event.target.value)
+    }
+
+
     const history = useHistory()
 
     const goBack = () => {
         history.goBack()
+    }
+
+    
+    const applyToTrip = (id) => {
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/brenda/trips/" + id + "/apply"
+        const token = localStorage.getItem("token")
+        const body = {
+            name: name,
+            age: age,
+            applicationText: applicationText,
+            profession: profession,
+            country: country,
+        }
+        axios.post(url, body, {
+            headers: {
+                auth: token
+            }
+        }).then((resp) => {
+            alert("Viagem inscrita com sucesso!")
+
+
+        }).catch((error) => {
+            alert("Erro ao inscrever viagem!")
+
+        })
     }
 
     return (
@@ -53,35 +107,22 @@ export default function ApplicationFormPage() {
         <Container>
             <div><h2>Inscreva-se para uma viagem</h2></div>
             <p></p>
-            <select typeof="text">
-                <option value disabled selected>Escolha uma Viagem</option>
-                <option value="0aQ9retlt9zxpeo40G2M">Multi luau em Jupiter</option>
-                <option value="HF3V6C2VFWoQ3QUOVJON">Picnic de Inverno em Plutão</option>
-                <option value="NoIFVcOiSgTKTIPVZwXS">Ano novo em Mercúrio</option>
-                <option value="QuWBcnjEQXAlxjLtAjLS">Surfando em Netuno</option>
-                <option value="vX4GWQtFDENjFEo7EAF1">Festança Marciana</option>
-            </select>
+            <input onChange={onChangeName} type="text" placeholder="Escolha uma Viagem"></input>
             <p></p>
-            <input type="text" placeholder="Nome"></input>
+            <input onChange={onChangeName} type="text" placeholder="Nome"></input>
             <p></p>
-            <input type="number" placeholder="Idade"></input>
+            <input onChange={onChangeAge} type="number" placeholder="Idade"></input>
             <p></p>
-            <input type="text" placeholder="Texto de Candidatura"></input>
+            <input onChange={onChangeApplicationText} type="text" placeholder="Texto de Candidatura"></input>
             <p></p>
-            <input type="text" placeholder="Profissão"></input>
+            <input onChange={onChangeProfession} type="text" placeholder="Profissão"></input>
             <p></p>
-            <select typeof="text">
-                <option value disabled selected>Escolha um Planeta</option>
-                <option value="Jupiter">Jupiter</option>
-                <option value="Plutão">Plutão</option>
-                <option value="Mercúrio">Mercúrio</option>
-                <option value="Netuno">Netuno</option>
-                <option value="Marte">Marte</option>
-            </select>
+            <input onChange={onChangeCountry} type="text" placeholder="Escolha um Planeta"></input>
             <p></p>
 
             <button onClick={goBack}>Voltar</button>
-            <button>Enviar</button>
+            <button onClick={applyToTrip}>Enviar</button>
+
         </Container>
     )
 }

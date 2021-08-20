@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import axios from "axios";
 import { useHistory } from "react-router"
-import TripDetailsPage from "./TripDetailsPage";
 
 
 
@@ -49,6 +48,7 @@ export default function AdminHomePage() {
     const [trips, setTrips] = useState([]);
 
 
+
     useEffect(() => {
 
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/brenda/trips"
@@ -57,7 +57,7 @@ export default function AdminHomePage() {
         }).then((resp) => {
             setTrips(resp.data.trips)
         }).catch((error) => {
-            console.log(error)
+            alert("Erro")
         })
     }, [])
 
@@ -65,7 +65,7 @@ export default function AdminHomePage() {
 
     const removeTrip = (id) => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/brenda/trips/" + id
-        
+
         const token = localStorage.getItem("token")
 
         axios.delete(url, {
@@ -73,12 +73,10 @@ export default function AdminHomePage() {
                 auth: token
             }
         }).then((resp) => {
-            console.log(resp)
             alert("Viagem removida com sucesso!")
             history.push("/private")
 
         }).catch((error) => {
-            console.log(error)
             alert("Erro ao remover viagem!")
         })
     }
@@ -101,9 +99,14 @@ export default function AdminHomePage() {
         history.push("/createTrip")
     }
 
-    const TripDetails = () => {
+    const tripDetails = () => {
         history.push("/details")
     }
+
+    const logout = () => {
+        history.push("/login")
+    }
+
 
     return (
 
@@ -113,7 +116,7 @@ export default function AdminHomePage() {
             <p></p>
             <button onClick={goBack}>Voltar</button>
             <button onClick={createTripPage} type="text">Criar Viagem</button>
-            <button type="text">Logout</button>
+            <button onClick={logout}>Logout</button>
             {
                 trips.map(trip => {
                     return (
@@ -121,7 +124,7 @@ export default function AdminHomePage() {
                             <hr></hr>
                             <p><b>Nome:</b> {trip.name}</p>
                             <button onClick={() => confirmRemoveTrip(trip.id)}>Remover</button>
-                            <button onClick={TripDetails}>Ver detalhes</button>
+                            <button onClick={tripDetails}>Ver detalhes</button>
                             <hr></hr>
 
                         </div>)

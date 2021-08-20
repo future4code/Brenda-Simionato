@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import styled, { ThemeConsumer } from "styled-components"
+import styled from "styled-components"
 import { useHistory } from "react-router"
 import axios from "axios"
 
@@ -51,20 +51,17 @@ export default function LoginPage() {
     }
 
     const onSubmitLogin = () => {
-        console.log(email, password)
         const body = {
             email: email,
             password: password
         }
         axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login", body)
             .then((resp) => {
-                console.log("Deu certo: ", resp.data.token);
                 localStorage.setItem("token", resp.data.token);
                 adminHomePage()
             })
             .catch((error) => {
                 alert('Usuário não encontrado')
-                console.log("Deu errado: ", error.resp);
             });
     };
 

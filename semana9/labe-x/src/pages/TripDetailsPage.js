@@ -41,9 +41,9 @@ p {
 `
 
 
-export default function TripDetailsPage(){
+export default function TripDetailsPage() {
 
-    // const [details, setDetails] = useState({})
+    const [details, setDetails] = useState({})
 
     const history = useHistory()
 
@@ -51,29 +51,54 @@ export default function TripDetailsPage(){
         history.goBack()
     }
 
+    const loginPage = () => {
+        history.push("/login")
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token === null) {
+            alert("Não está logado!")
+            {loginPage()}
+        }
+    }, [])
+
 
     useEffect((id) => {
         const token = localStorage.getItem("token")
 
-       
         axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/brenda/trip/" + id, {
             headers: {
                 auth: token
             }
         }).then((resp) => {
-            console.log(resp.data)
+            setDetails(resp.data.trip)
+            console.log(resp.data.trip)
         }).catch((error) => {
-            console.log(error.resp)
+            alert("Erro ao exibir detalhes!")
         })
     }, [])
-       
-  
+
+
     return (
         <Container>
 
-            <b>Detalhes da Viagem: </b>
-             <button onClick={goBack}>Voltar</button>
-            
+            <div><h2>Detalhes da Viagem:</h2></div>
+            <hr></hr>
+
+            <div>
+                <p><b>Nome: </b>{details.name}</p>
+                <p><b>Descrição: </b>{details.description}</p>
+                <p><b>Planeta: </b>{details.planet}</p>
+                <p><b>Duração: </b>{details.durationInDays} dias</p>
+                <p><b>Data: </b>{details.date}</p>
+                <hr></hr>
+            </div>
+
+
+
+            <button onClick={goBack}>Voltar</button>
+
         </Container>
     )
 }

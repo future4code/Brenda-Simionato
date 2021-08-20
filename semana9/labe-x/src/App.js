@@ -27,7 +27,7 @@ export default function App() {
       <Switch>
 
         <Route exact path={"/"}>
-         <Container><h1>LabeX</h1></Container> 
+          <Container><h1>LabeX</h1></Container>
           <HomePage></HomePage>
         </Route>
 
@@ -57,7 +57,7 @@ export default function App() {
         <Route exact path={"/details/"}>
           <TripDetailsPage></TripDetailsPage>
         </Route>
-        
+
 
       </Switch>
     </BrowserRouter>

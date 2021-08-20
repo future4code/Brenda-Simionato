@@ -75,6 +75,10 @@ export default function CreateTripPage() {
     }
 
 
+    const adminHomePage = () => {
+        history.push("/private")
+    }
+
     const onCreateTrip = () => {
         const token = localStorage.getItem("token")
         const body = {
@@ -90,7 +94,7 @@ export default function CreateTripPage() {
             }
         }).then((resp) => {
             alert("Viagem criada com sucesso");
-            
+            {adminHomePage()}
             
         }).catch((error) => {
             alert('Não foi possível criar uma nova viagem.');

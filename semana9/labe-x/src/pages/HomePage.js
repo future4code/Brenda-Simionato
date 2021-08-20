@@ -26,7 +26,7 @@ button {
 
 export default function HomePage() {
 
-
+    
 
     const history = useHistory()
 

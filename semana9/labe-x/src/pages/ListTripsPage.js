@@ -50,10 +50,10 @@ export default function ListTripsPage() {
         }).then((resp) => {
             setTrips(resp.data.trips)
         }).catch((error) => {
-            console.log(error)
+            alert("Erro ao listar viagens!")
         })
     }, [])
-   
+
 
 
     const history = useHistory()
@@ -66,7 +66,6 @@ export default function ListTripsPage() {
     const applicationFormPage = () => {
         history.push("/formPage")
     }
-
 
     return (
 
