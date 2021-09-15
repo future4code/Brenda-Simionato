@@ -10,19 +10,16 @@ export default function HomePage() {
 
     const [initGame, setInitGame] = useState(false)
     const [indexChooseCard, setIndexChooseCard] = useState(undefined)
-    //const [showDescriptionModal, setShowDescriptionModal] = useState('')
     const [show, setShow] = useState(false);
     const [cardName, setCardName] = useState("")
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     const renderOpenTarot = () => {
         return (
             tarot.cards.map((card) => {
                 return (
-                    <Card class=".d-xl-inline-flex"> 
-                        <img  style={{ width: '10rem' }}src={tarot.imagesUrl + card.image} class="rounded mx-auto d-block" alt={"Imagem da carta"} />
+                    <Card class=".d-xl-inline-flex">
+                        <img style={{ width: '10rem' }} src={tarot.imagesUrl + card.image} class="rounded mx-auto d-block" alt={"Imagem da carta"} />
                     </Card>
                 )
             })
@@ -37,11 +34,11 @@ export default function HomePage() {
 
                 if (indexChooseCard) {
                     if (indexChooseCard == index) {
-                        setCardName(card.name)
-                        handleShow()
                         return (
                             <Card style={{ width: '10rem' }} class="card">
                                 <img src={tarot.imagesUrl + card.image} class="card-img-top" alt={"Imagem da carta"} />
+                                {card.name}
+                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ips</span>
                             </Card>
                         )
                     } else {
@@ -72,29 +69,14 @@ export default function HomePage() {
         }
     }
 
-    
+
 
     return (
         <Container style={{ width: '12rem' }} class="card-group">
 
             <Button onClick={() => setInitGame(true)} variant="outline-success">Iniciar Jogo</Button>
             {render()}
-            {/* <>
-              <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                  <Modal.Title>{cardName}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
-                  </Button>
-                  <Button variant="primary" onClick={handleClose}>
-                    Save Changes
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </> */}
+
 
         </Container>
     )
