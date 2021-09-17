@@ -19,7 +19,7 @@ export default function HomePage() {
             tarot.cards.map((card) => {
                 return (
                     <Card class=".d-xl-inline-flex">
-                        <img style={{ width: '10rem' }} src={tarot.imagesUrl + card.image} class="rounded mx-auto d-block" alt={"Imagem da carta"} />
+                        <img class="text-center" style={{ width: '10rem' }} src={tarot.imagesUrl + card.image}  alt={"Imagem da carta"} />
                     </Card>
                 )
             })
@@ -35,24 +35,34 @@ export default function HomePage() {
                 if (indexChooseCard) {
                     if (indexChooseCard == index) {
                         return (
-                            <Card style={{ width: '10rem' }} class="card">
-                                <img src={tarot.imagesUrl + card.image} class="card-img-top" alt={"Imagem da carta"} />
-                                {card.name}
-                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ips</span>
+                            <Card style={{ width: '10rem' }} class="col-sm-8">
+                                <img src={tarot.imagesUrl + card.image}  class="text-center"alt={"Imagem da carta"} />
+                                <div>
+                                <b>{card.name}</b>
+                                <p></p>
+                                <span >Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                    when an unknown printer took a galley of type and scrambled it to make a type
+                                     specimen book. It has survived not only five centuries, but also the leap into 
+                                     electronic typesetting, remaining essentially unchanged. It was popularised in the 
+                                     1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more 
+                                     recently with desktop publishing software like Aldus PageMaker including versions
+                                      of Lorem Ips</span>
+                                </div>
                             </Card>
                         )
                     } else {
                         return (
-                            <Card style={{ width: '10rem' }} class="card">
-                                <img src={tarot.imageBackCard} class="card-img-top" alt={"Imagem da carta"} />
+                            <Card style={{ width: '10rem' }} class="col-sm-8">
+                                <img src={tarot.imageBackCard}  alt={"Imagem da carta"} />
                             </Card>
                         )
                     }
 
                 } else {
                     return (
-                        <Card class="card">
-                            <img onClick={() => setIndexChooseCard(index)} class="card-img-top" src={tarot.imageBackCard} alt={"Imagem da carta"} />
+                        <Card class="col-sm-8">
+                            <img onClick={() => setIndexChooseCard(index)} src={tarot.imageBackCard} alt={"Imagem da carta"} />
                         </Card>
                     )
                 }
@@ -72,7 +82,7 @@ export default function HomePage() {
 
 
     return (
-        <Container style={{ width: '12rem' }} class="card-group">
+        <Container class="row" style={{ width: '12rem' }}>
 
             <Button onClick={() => setInitGame(true)} variant="outline-success">Iniciar Jogo</Button>
             {render()}
