@@ -25,12 +25,13 @@ type extrato = {
     descricao: string
 }
 
-app.post("/usuarios", (req: Request, res: Response) => {
+app.post("/contas", (req: Request, res: Response) => {
     const conta = req.body as conta
     const comparaConta = contas.find((c) => {
         return conta.cpf == c.cpf
     })
-    if (comparaConta != null || comparaConta != undefined) {
+    console.log(comparaConta)
+    if (comparaConta == null || comparaConta == undefined) {
         contas.push(conta)
         res.status(201).send("Conta criada.")
     } else {
@@ -40,3 +41,36 @@ app.post("/usuarios", (req: Request, res: Response) => {
 
 let contas: conta[] = []
 
+
+
+app.get("/contas/saldo", (req: Request, res: Response) => {
+    const nome = req.query.nome
+    const cpf = req.query.cpf
+
+    const conta = contas.find((conta) => {
+        return conta.nome == nome && conta.cpf == cpf
+    })
+    if (conta != null && conta != undefined) {
+        res.send(conta.saldo)
+    } else {
+        res.status(404).send("Não encontrada conta com esses dados.")
+    }
+})
+
+
+app.post("/contas/saldo", (req: Request, res: Response) => {
+    const nome = req.query.nome
+    const cpf = req.query.cpf
+    const saldo = Number(req.body.saldo)
+
+    const conta = contas.find((conta) => {
+        return conta.nome == nome && conta.cpf == cpf
+    })
+    if (conta != null && conta != undefined) {
+        conta.saldo = Number(conta.saldo) + saldo
+        console.log(conta)
+        res.status(200).send("O seu novo saldo é: " + conta.saldo)
+    } else {
+        res.status(404).send("Não encontrada conta com esses dados.")
+    }
+})
