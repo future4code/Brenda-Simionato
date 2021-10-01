@@ -49,7 +49,6 @@ app.get("/users/:id", async (req: Request, res: Response) => {
         const usersById = await getUserById(id)
         res.send(usersById)
     } catch (error) {
-        console.log(error)
         res.status(500).send("Erro inesperado.")
     }
 })
@@ -74,18 +73,46 @@ app.put("/users/edit/:id", async (req: Request, res: Response) => {
 })
 
 type task = {
+    id: number,
     tittle: string,
     description: string,
     limiteDate: string,
     creatorUserId: string
 }
 
-app.post("/task", (req: Request, res: Response) => {
+const createTask = async (task: task): Promise<any> => {
+    const result = await connection.raw(`
+
+     INSERT INTO User (tittle, description, limiteDate, creatorUserId) VALUES ('${task.tittle}', 
+     '${task.description}', '${task.limiteDate}', '${task.creatorUserId}')
+    `)
+    return result[0][0]
+}
+
+app.post("/task", async (req: Request, res: Response) => {
     const task = req.body as task
 
     if (task != null || task != undefined) {
-        res.status(201).send("Tarefa cadastrada com sucesso.")
+        const createdTask = await createTask(task)
+        res.status(201).send(createdTask)
     } else {
         res.status(500).send("Erro ao cadastrar nova tarefa.")
+    }
+})
+
+const getTaskById = async (id: number): Promise<any> => {
+    const result = await connection.raw(`
+         SELECT * FROM task WHERE id = ${id}
+    `)
+    return result[0][0]
+}
+
+app.get("/task/:id", async (req: Request, res: Response) => {
+    try {
+        const id = Number(req.params.id)
+        const taskById = await getTaskById(id)
+        res.send(taskById)
+    } catch (error) {
+        res.status(500).send("Erro inesperado.")
     }
 })
