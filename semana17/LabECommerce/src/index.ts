@@ -23,7 +23,7 @@ const createUser = async (user: User): Promise<any> => {
 app.post("/users", async (req: Request, res: Response) => {
     const user = req.body as User
 
-    if (user != null || user != undefined) {
+    if (user != null && user != undefined) {
         const createdUser = await createUser(user)
         res.status(201).send(createdUser)
     } else {
@@ -34,7 +34,7 @@ app.post("/users", async (req: Request, res: Response) => {
 
 const createProduct = async (product: Product): Promise<any> => {
     const result = await connection.raw(`
-        INSERT INTO User (name, description, price) VALUES ('${product.name}', '${product.description}', '${product.price}')
+        INSERT INTO Product (name, description, price) VALUES ('${product.name}', '${product.description}', ${product.price})
     `)
     return result[0][0]
 }
@@ -42,7 +42,7 @@ const createProduct = async (product: Product): Promise<any> => {
 app.post("/products", async (req: Request, res: Response) => {
     const product = req.body as Product
 
-    if (product != null || product != undefined) {
+    if (product != null && product != undefined) {
         const createdProduct = await createProduct(product)
         res.status(201).send(createdProduct)
     } else {
@@ -50,35 +50,33 @@ app.post("/products", async (req: Request, res: Response) => {
     }
 })
 
-const getUserById = async (id: string): Promise<any> => {
+const getUser = async (id: string): Promise<any> => {
     const result = await connection.raw(`
-         SELECT * FROM User WHERE id = ${id}
+         SELECT * FROM User 
     `)
     return result[0][0]
 }
 
-app.get("/users/:id", async (req: Request, res: Response) => {
+app.get("/users", async (req: Request, res: Response) => {
     try {
-        const id = req.params.id
-        const usersById = await getUserById(id)
-        res.send(usersById)
+        const users = await getUser
+        res.send(users)
     } catch (error) {
         res.status(500).send("Erro inesperado.")
     }
 })
 
-const getProductById = async (id: string): Promise<any> => {
+const getProduct = async (id: string): Promise<any> => {
     const result = await connection.raw(`
-         SELECT * FROM Product WHERE id = ${id}
+         SELECT * FROM Product 
     `)
     return result[0][0]
 }
 
-app.get("/products/:id", async (req: Request, res: Response) => {
+app.get("/products", async (req: Request, res: Response) => {
     try {
-        const id = req.params.id
-        const productsById = await getProductById(id)
-        res.send(productsById)
+        const products = await getProduct
+        res.send(products)
     } catch (error) {
         res.status(500).send("Erro inesperado.")
     }
