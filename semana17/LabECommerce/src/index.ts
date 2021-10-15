@@ -3,6 +3,8 @@ import cors from 'cors'
 import { User } from "./entity/User";
 import connection from "./connection";
 import { Product } from "./entity/Product";
+import { Trip } from "./entity/Trip";
+
 
 const app = express();
 
@@ -15,7 +17,7 @@ app.listen(3000, () => {
 
 const createUser = async (user: User): Promise<any> => {
     const result = await connection.raw(`
-        INSERT INTO User (name, email, age) VALUES ('${user.name}', '${user.email}', '${user.age}')
+        INSERT INTO User (name, email, age) VALUES ('${user.name}', '${user.email}', ${user.age})
     `)
     return result[0][0]
 }
@@ -50,7 +52,7 @@ app.post("/products", async (req: Request, res: Response) => {
     }
 })
 
-const getUser = async (id: string): Promise<any> => {
+const getUsers = async (): Promise<any> => {
     const result = await connection.raw(`
          SELECT * FROM User 
     `)
@@ -59,14 +61,14 @@ const getUser = async (id: string): Promise<any> => {
 
 app.get("/users", async (req: Request, res: Response) => {
     try {
-        const users = await getUser
+        const users = await getUsers()
         res.send(users)
     } catch (error) {
         res.status(500).send("Erro inesperado.")
     }
 })
 
-const getProduct = async (id: string): Promise<any> => {
+const getProducts = async (): Promise<any> => {
     const result = await connection.raw(`
          SELECT * FROM Product 
     `)
@@ -75,8 +77,43 @@ const getProduct = async (id: string): Promise<any> => {
 
 app.get("/products", async (req: Request, res: Response) => {
     try {
-        const products = await getProduct
+        const products = await getProducts()
         res.send(products)
+    } catch (error) {
+        res.status(500).send("Erro inesperado.")
+    }
+})
+
+
+const createTrip = async (trip: Trip): Promise<any> => {
+    const result = await connection.raw(`
+        INSERT INTO Trip (name, description, price, origin, destination) VALUES ('${trip.name}', '${trip.description}', ${trip.price}, '${trip.origin}', '${trip.destination}')
+    `)
+    return result[0][0]
+}
+
+app.post("/trips", async (req: Request, res: Response) => {
+    const trips = req.body as Trip
+
+    if (trips != null && trips != undefined) {
+        const createdTrip = await createTrip(trips)
+        res.status(201).send(createdTrip)
+    } else {
+        res.status(500).send("Erro ao cadastrar nova viagem.")
+    }
+})
+
+const getTrips = async (): Promise<any> => {
+    const result = await connection.raw(`
+         SELECT * FROM Trip
+    `)
+    return result[0][0]
+}
+
+app.get("/trips", async (req: Request, res: Response) => {
+    try {
+        const trips = await getTrips()
+        res.send(trips)
     } catch (error) {
         res.status(500).send("Erro inesperado.")
     }
