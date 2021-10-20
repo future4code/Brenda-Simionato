@@ -4,6 +4,9 @@ import { Cadastro } from './entidade/Cadastro';
 import { CadastroRepositorio } from './repositorio/CadastroRepositorio';
 import { ReceitaRepositorio } from './repositorio/ReceitaRepositorio';
 import { Receita } from './entidade/Receita';
+import { Login } from './entidade/Login';
+import { Autenticacao } from './servicos/Autenticacao';
+import { LoginRepositorio } from './repositorio/LoginRepositorio';
 
 const app = express();
 
@@ -37,4 +40,24 @@ app.post("/receitas", async (req: Request, res: Response) => {
     } else {
         res.status(500).send("Erro ao criar receita.")
     }
+})
+
+
+app.post("/login", async (req: Request, res: Response) => {
+  
+    const cadastroRepositorio = new CadastroRepositorio() 
+    const cadastro = await cadastroRepositorio.buscaPorEmailESenha(req.body.email, req.body.senha)
+    
+    if(cadastro == null || cadastro == undefined) {
+        return res.status(401).send("Credenciais inválidas.")
+    }
+
+    const autenticacao = new Autenticacao()
+    const token = autenticacao.gerarToken({ id: cadastro.id, email: cadastro.email })
+    const loginRepositorio = new LoginRepositorio()
+
+    const login = new Login(cadastro.id, cadastro.email, token, new Date())
+    loginRepositorio.cria(login)
+
+    res.send(login)
 })
