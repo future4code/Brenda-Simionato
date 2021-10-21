@@ -1,4 +1,4 @@
 export interface DadosAutenticador {
-    id: string
+    id: number
     email: string
 }

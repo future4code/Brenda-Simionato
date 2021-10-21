@@ -7,6 +7,7 @@ import { Receita } from './entidade/Receita';
 import { Login } from './entidade/Login';
 import { Autenticacao } from './servicos/Autenticacao';
 import { LoginRepositorio } from './repositorio/LoginRepositorio';
+import { Criptografia } from './servicos/Criptografia';
 
 const app = express();
 
@@ -23,6 +24,10 @@ app.post("/cadastros", async (req: Request, res: Response) => {
 
     if (cadastro != null && cadastro != undefined) {
         const cadastroRepositorio = new CadastroRepositorio()
+
+        const criptografia = new Criptografia()
+        cadastro.senha = criptografia.geraHash(cadastro.senha)
+
         const cadastroCriado = await cadastroRepositorio.cria(cadastro)
         res.status(201).send(cadastroCriado)
     } else {
@@ -44,11 +49,15 @@ app.post("/receitas", async (req: Request, res: Response) => {
 
 
 app.post("/login", async (req: Request, res: Response) => {
-  
-    const cadastroRepositorio = new CadastroRepositorio() 
-    const cadastro = await cadastroRepositorio.buscaPorEmailESenha(req.body.email, req.body.senha)
-    
-    if(cadastro == null || cadastro == undefined) {
+
+    const cadastroRepositorio = new CadastroRepositorio()
+
+    const criptografia = new Criptografia()
+    const senhaCriptografada = criptografia.geraHash(req.body.senha)
+
+    const cadastro = await cadastroRepositorio.buscaPorEmailESenha(req.body.email, senhaCriptografada)
+
+    if (cadastro == null || cadastro == undefined) {
         return res.status(401).send("Credenciais inválidas.")
     }
 
@@ -60,4 +69,27 @@ app.post("/login", async (req: Request, res: Response) => {
     loginRepositorio.cria(login)
 
     res.send(login)
+})
+
+
+app.get("/usuario/perfil", async (req: Request, res: Response) => {
+
+    const token = req.headers.authorization
+
+    if (!token) {
+        return res.status(401).send("Não autorizado.")
+    }
+
+    const autenticacao = new Autenticacao()
+    const dadosToken = autenticacao.retornaDadosToken(token)
+
+    if (!dadosToken) {
+        return res.status(401).send("Token inválido.")
+    }
+
+    const cadastroRepositorio = new CadastroRepositorio()
+    const cadastro = await cadastroRepositorio.buscaPorId(dadosToken.id)
+
+    return res.status(200).send(cadastro)
+
 })

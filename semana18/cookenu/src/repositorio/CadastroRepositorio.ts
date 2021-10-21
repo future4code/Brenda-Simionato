@@ -18,4 +18,13 @@ export class CadastroRepositorio {
         return result[0][0]
     }
 
+
+    buscaPorId = async (id: number): Promise<any> => {
+        const result = await connection.raw(`
+
+            SELECT * FROM cookenu_cadastro WHERE id = ${id}
+        `)
+        return result[0][0]
+    }
+
 }
