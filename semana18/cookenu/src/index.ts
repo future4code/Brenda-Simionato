@@ -93,3 +93,25 @@ app.get("/usuario/perfil", async (req: Request, res: Response) => {
     return res.status(200).send(cadastro)
 
 })
+
+app.get("usuario/:id", async (req: Request, res: Response) => {
+    const id = Number(req.params.id)
+    const token = req.headers.authorization
+
+    if (!token) {
+        return res.status(401).send("Não autorizado.")
+    }
+
+    const autenticacao = new Autenticacao()
+    const dadosToken = autenticacao.retornaDadosToken(token)
+
+    if (!dadosToken) {
+        return res.status(401).send("Token inválido.")
+    }
+
+    const cadastroRepositorio = new CadastroRepositorio()
+    const cadastro = cadastroRepositorio.buscaPorId(id)
+
+    return res.status(200).send(cadastro)
+
+})
